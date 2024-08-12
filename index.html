@@ -31,26 +31,30 @@
             <!-- backbox -->
 
             <div class="frontbox">
-                <div class="login">
+                <form id="formLogin" class="login">
                     <h2>LOG IN</h2>
                     <div class="inputbox">
-                        <input type="text" name="email" placeholder=" Email">
-                        <input type="password" name="password" placeholder=" Password">
+                        <input id="emailL" type="text" name="email" placeholder=" Email">
+                        <input id="passwordL" type="password" name="password" placeholder=" Password">
                     </div>
                     <p>Forget Password?</p>
-                    <button>LOG IN</button>
-                </div>
+                    <button id="login">LOG IN</button>
+                </form>
 
-                <div class="signup hide">
+                <form id="formRegister" class="signup hide">
                     <h2>SIGN UP</h2>
                     <div class="inputbox">
                         <input type="text" name="fullname" placeholder=" Full Name">
                         <input type="text" name="email" placeholder=" Email">
                         <input type="password" name="password" placeholder=" Password">
-                        <input type="rol" name="rol" placeholder=" Rol">
+                        <input list="rol" name="rol" placeholder=" Rol">
+                        <datalist id="rol">
+                            <option value="Developer">
+                            <option value="Project manager">
+                        </datalist>
                     </div>
-                    <button>SIGN UP</button>
-                </div>
+                    <button id="signup">SIGN UP</button>
+                </form>
 
             </div>
             <!-- frontbox -->
