@@ -34,8 +34,8 @@
                 <form id="formLogin" class="login">
                     <h2>LOG IN</h2>
                     <div class="inputbox">
-                        <input id="emailL" type="text" name="email" placeholder=" Email">
-                        <input id="passwordL" type="password" name="password" placeholder=" Password">
+                        <input id="emailL" class="email" type="text" name="email" placeholder=" Email">
+                        <input id="passwordL" class="password" type="password" name="password" placeholder=" Password">
                     </div>
                     <p>Forget Password?</p>
                     <button id="login">LOG IN</button>
@@ -44,10 +44,10 @@
                 <form id="formRegister" class="signup hide">
                     <h2>SIGN UP</h2>
                     <div class="inputbox">
-                        <input type="text" name="fullname" placeholder=" Full Name">
-                        <input type="text" name="email" placeholder=" Email">
-                        <input type="password" name="password" placeholder=" Password">
-                        <input list="rol" name="rol" placeholder=" Rol">
+                        <input id="fullName" type="text" name="fullName" placeholder=" Full Name">
+                        <input id="emailS" class="email" type="text" name="email" placeholder=" Email">
+                        <input id="passwordS" class="password" type="password" name="password" placeholder=" Password">
+                        <input class="rol" list="rol" name="rol" placeholder=" Rol">
                         <datalist id="rol">
                             <option value="Developer">
                             <option value="Project manager">
@@ -61,7 +61,8 @@
         </div>
     </div>
 
-    <script src="./script.js"></script>
+    <script type="module" src="./script.js"></script>
 </body>
 
 </html>
+
