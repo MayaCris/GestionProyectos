@@ -1,6 +1,6 @@
 import { ControllerUser } from "./controller/controllerUser.js";
+import { ValidationMessage } from "./helpers/ValidationMessage.js";
 
-const controllerUser = new ControllerUser();
 
 class Main {
     constructor() {
@@ -19,7 +19,9 @@ class Main {
     }
 
     bindEvents() {
-        $('#signup').on('click', () => controllerUser.createUser());
+        $('#signup').on('click', () => {
+            if(this.$inputs.hasClass('cumple')){
+            controllerUser.createUser()}});
         $('#validateUsers').on('click', () => console.log(controllerUser.getUsers()));
         // $('#login').on('click', ControllerUser.loginUser);
         this.$inputs.on('keyup', (e) => this.validateForm(e));
@@ -67,14 +69,20 @@ class Main {
             console.log("email valido");
             $('.email').removeClass('no-cumple').addClass('cumple');
             $('#signup').prop('disabled', false).css('opacity', 1);
+            $('#login').prop('disabled', false).css('opacity', 1);
+            validationMessage.clearMessage(input);
         } else if ($(input).val() === "") {
             console.log("email vacio");
-            $('.email').removeClass('cumple no-cumple');
+            $('.email').removeClass('cumple');
             $('#signup').prop('disabled', true).css('opacity', 0.5);
+            $('#login').prop('disabled', true).css('opacity', 0.5);
+            validationMessage.clearMessage(input);
         } else {
             console.log("email invalido");
             $('.email').removeClass('cumple').addClass('no-cumple');
             $('#signup').prop('disabled', true).css('opacity', 0.5);
+            $('#login').prop('disabled', true).css('opacity', 0.5);
+            validationMessage.showMessage(input, "Ingresa un email válido");
         }
     }
 
@@ -82,14 +90,22 @@ class Main {
         if (this.passwordRegex.test($(input).val())) {
             console.log("password valido");
             $('.password').removeClass('no-cumple').addClass('cumple');
+            $('#signup').prop('disabled', false).css('opacity', 1);
+            $('#login').prop('disabled', false).css('opacity', 1);
+            validationMessage.clearMessage(input);
         } else if ($(input).val() === "") {
             console.log("password vacio");
-            $('.password').removeClass('cumple no-cumple');
-            $
+            $('.password').removeClass('cumple');
+            $('#signup').prop('disabled', true).css('opacity', 0.5);
+            $('#login').prop('disabled', true).css('opacity', 0.5);
+            validationMessage.clearMessage(input);
         } else {
             console.log("password invalido");
             $('.password').removeClass('cumple').addClass('no-cumple');
-            $('#login').prop('disabled', true);
+            $('#signup').prop('disabled', true).css('opacity', 0.5);
+            $('#login').prop('disabled', true).css('opacity', 0.5);
+            validationMessage.showMessage(input, "La contraseña debe contener al menos 5 caracteres, una mayúscula y un número");
+
         }
     }
 
@@ -97,12 +113,15 @@ class Main {
         if (this.fullNameRegex.test($(input).val())) {
             console.log("nombre valido");
             $('#fullName').removeClass('no-cumple').addClass('cumple');
+            validationMessage.clearMessage(input);
         } else if ($(input).val() === "") {
             console.log("nombre vacio");
-            $('#fullName').removeClass('cumple no-cumple');
+            $('#fullName').removeClass('cumple');
+            validationMessage.clearMessage(input);
         } else {
             console.log("nombre invalido");
             $('#fullName').removeClass('cumple').addClass('no-cumple');
+            validationMessage.showMessage(input, "Ingresa un nombre y apellido");
         }
     }
 
@@ -113,9 +132,13 @@ class Main {
         } else {
             console.log("rol invalido");
             $('.rol').removeClass('cumple').addClass('no-cumple');
+            $('#signup').prop('disabled', true).css('opacity', 0.5);
+
         }
     }
 }
 
 // Instancia de la clase
+const controllerUser = new ControllerUser();
+const validationMessage = new ValidationMessage();
 const main = new Main();
