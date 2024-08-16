@@ -1,4 +1,4 @@
-import { UserModel } from "../model/modelUser";
+import { UserModel } from "../model/modelUser.js";
 
 export class ControllerUser{
     constructor(){
@@ -6,26 +6,29 @@ export class ControllerUser{
         this.userModel = new UserModel();
     }
 
-    createUser(userData){
+    createUser = function(){
+        const userData = {
+            fullName: $('#fullName').val(),
+            email: $('#emailS').val(),
+            password: $('#passwordS').val(),
+            rol: $('.rol').val()
+        };
+        
         this.user = userData;
+        console.log(this.user);
         this.userModel.saveToLocalStorage(this.user);
-        
-    }
+        console.log(this.userModel.getFromLocalStorage());
+    };
 
-    userData = function(){
-        var $fullNameRegistration = $('#fullName'),
-            $emailRegistration = $('#emailS'),
-            $passwordRegistration = $('#passwordS'),
-            $rolRegistration = $('.rol');
-        
+    getUsers(){
+        return this.userModel.getFromLocalStorage();
     }
     
-    loginUser(){
+    // loginUser(){
         
-    }
-
-
+    // }
 
 }
 
-console.log(userData)
+
+
