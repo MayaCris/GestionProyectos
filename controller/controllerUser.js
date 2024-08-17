@@ -6,22 +6,23 @@ export class ControllerUser{
         this.userModel = new UserModel();
     }
 
-    createUser = function(){
-        const userData = {
+    createUser(){
+        this.user = {
             fullName: $('#fullName').val(),
             email: $('#emailS').val(),
             password: $('#passwordS').val(),
             rol: $('.rol').val()
         };
         
-        this.user = userData;
-        console.log(this.user);
         this.userModel.saveToLocalStorage(this.user);
-        console.log(this.userModel.getFromLocalStorage());
     };
 
     getUsers(){
         return this.userModel.getFromLocalStorage();
+    }
+
+    deleteAllUsers(){
+        this.userModel.clearLocalStorage();
     }
     
     // loginUser(){
