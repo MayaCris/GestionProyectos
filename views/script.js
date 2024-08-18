@@ -25,7 +25,10 @@ export class dashboardView {
         this.dialog.querySelector('.close').addEventListener('click', () => this.dialog.close());
         this.dialog.querySelector('.remove').addEventListener('click', () => this.removeSelectedRows());
 
-        $("#buttonLogOut").on('click', () => this.controllerUser.logout());
+        $("#buttonLogOut").on('click', (event) => {
+            event.preventDefault();
+            this.controllerUser.logout()
+        });
     }
 
     handleAddRow() {

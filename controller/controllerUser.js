@@ -76,9 +76,13 @@ export class ControllerUser{
           }).then((result) => {
             if (result.isConfirmed) {
                 this.userModel.clearSessionStorage();
-                window.location.href = '../index.html';
+                setTimeout(() => {
+                    window.location.href = '../index.html'; 
+                },700);
             }
-          });
+          }).catch((error) => {
+            console.error("SweetAlert2 error: ", error); // Captura cualquier error con SweetAlert2
+        });
     }
 
 }
