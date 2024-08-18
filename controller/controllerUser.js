@@ -15,6 +15,7 @@ export class ControllerUser{
         };
         
         this.userModel.saveToLocalStorage(this.user);
+        window.location.href = '../index.html';
     };
 
     getUsers(){
