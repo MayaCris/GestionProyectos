@@ -46,7 +46,9 @@ export class ControllerUser{
             let user = this.getUsers().find((user) => user.email === $('#emailL').val());
             console.log(user);
             this.userModel.saveToSessionStorage(user);
-            window.location.href = './views/dashboard.html';
+            setTimeout(() => {
+                window.location.href = './views/dashboard.html'; 
+            },7000);
         }else{
             console.log('Usuario no autenticado');
             Swal.fire({
