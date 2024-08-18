@@ -9,8 +9,13 @@ export class dashboardView {
     }
 
     bindEvents() {
-        window.addEventListener('load', () => this.controllerUser.checkAuthentication());
-        window.addEventListener('hashchange', () => this.controllerUser.checkAuthentication());
+        window.addEventListener('load', () => {
+            console.log('Window loaded.');
+            this.controllerUser.checkAuthentication()});
+
+        window.addEventListener('hashchange', () => {
+            console.log('Hash changed.');
+            this.controllerUser.checkAuthentication()});
 
         $(".add-row").on("click", () => this.handleAddRow());
         $(".remove-row").on("click", () => this.handleRemoveRow());
