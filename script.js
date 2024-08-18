@@ -26,10 +26,13 @@ class Main {
         $('#formLogin input').on('input', () => this.validateLoginForm());
         $('#formRegister input').on('input', () => this.validateRegisterForm());
 
+
+
         $('#signup').on('click', () => this.controllerUser.createUser());
         $('#validateUsers').on('click', () => console.log(this.controllerUser.getUsers())); //Boton para validar usuarios registrados
+        $('#validateUsers').on('click', () => console.log(this.controllerUser.getSession())); //Boton para validar usuarios registrados
         $('#deleteUsers').on('click', () => console.log(this.controllerUser.deleteAllUsers())); //Boton para borrar todos los usuarios registrados
-        // $('#login').on('click', () => {controllerUser.loginUser()});
+        $('#login').on('click', () => {this.controllerUser.loginUser()});
 
     }
 
@@ -126,3 +129,5 @@ class Main {
 }
 
 $(document).ready(() => new Main());
+
+
