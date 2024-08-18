@@ -2,9 +2,11 @@
     0% {
         background-position: 0% 50%;
     }
+
     50% {
         background-position: 100% 50%;
     }
+
     100% {
         background-position: 0% 50%;
     }
@@ -13,6 +15,57 @@
 body {
     background-color: #c7c4c4;
 }
+
+.navigation {
+    width: 100%;
+    background-color: black;
+}
+
+img {
+    width: 25px;
+    border-radius: 50px;
+    float: left;
+}
+
+.logout {
+    font-size: .8em;
+    position: relative;
+    right: -18px;
+    bottom: -4px;
+    overflow: hidden;
+    letter-spacing: 3px;
+    opacity: 0;
+    transition: opacity .45s;
+    -webkit-transition: opacity .35s;
+
+}
+
+.button {
+    text-decoration: none;
+    float: right;
+    padding: 12px;
+    margin: 15px;
+    color: white;
+    width: 25px;
+    background-color: #9106ac;
+    transition: width .35s;
+    -webkit-transition: width .35s;
+    overflow: hidden
+}
+
+a:hover {
+    width: 100px;
+}
+
+a:hover .logout {
+    opacity: .9;
+}
+
+a {
+    text-decoration: none;
+}
+
+
 
 #products.mdl-data-tabledynamic {
     width: 100%;
@@ -94,24 +147,25 @@ body {
 .container {
     text-align: center;
     justify-content: center;
-    align-items: center ;
+    align-items: center;
     width: 500px;
     margin: auto;
-  }
+}
 
-  .light-table-filter{
+.light-table-filter {
     display: flex;
     padding: 8px;
     width: 100%;
     border: 1px solid #c8c8c8;
     border-radius: 4px;
     margin-bottom: 10px;
-  }
+}
 
 .mdl-data-tabledynamic__actions {
     display: flex;
     float: right;
-    margin-right: 12px;;
+    margin-right: 12px;
+    ;
 }
 
 .mdl-data-tabledynamic__actions .mdl-button {

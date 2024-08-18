@@ -43,8 +43,8 @@ export class ControllerUser{
     loginUser(){
         console.log(this.searchUser());
         if(this.searchUser()){
-            console.log('Usuario autenticado');
             let user = this.getUsers().find((user) => user.email === $('#emailL').val());
+            console.log(user);
             this.userModel.saveToSessionStorage(user);
             window.location.href = './views/dashboard.html';
         }else{
@@ -72,7 +72,7 @@ export class ControllerUser{
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonText: "Yes, log out!"
           }).then((result) => {
             if (result.isConfirmed) {
                 this.userModel.clearSessionStorage();
