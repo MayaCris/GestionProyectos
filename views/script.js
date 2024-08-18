@@ -13,7 +13,7 @@ export class dashboardView {
 
         $(".add-row").on("click", () => this.handleAddRow());
         $(".remove-row").on("click", () => this.handleRemoveRow());
-        
+
         $(document).on("click", ".mdl-checkbox", (event) => this.toggleRowSelection(event));
         $(document).on("click", "#checkbox-all", () => this.toggleAllRows());
         $(document).on("click", "span.mdl-data-table__label.add-table-content", (event) => this.addContentDialog(event));
@@ -93,8 +93,7 @@ export class dashboardView {
         var _input = $(event.currentTarget).parents("td").find("input");
         if (_textfield.hasClass("is-invalid") === false && $.trim(_input.val()) !== "") {
             var _col = $(event.currentTarget).parents("td:first");
-            var value = _col.hasClass("price") ? "₺ " : "";
-            _col.html(value + _input.val());
+            _col.html(_input.val());
         }
     }
 
